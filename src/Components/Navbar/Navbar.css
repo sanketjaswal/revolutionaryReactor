@@ -1,0 +1,98 @@
+#Nav_container {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  background-color: var(--Site_BackgroundCOlor);
+  justify-content: center;
+  top: 0px;
+  position: fixed;
+  padding-top:10px ;
+  z-index: 2;
+}
+
+#nav_bar {
+  width: var(--Site_contentWidth);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--Site_smallTextColor);
+}
+
+#nav_logoHolder {
+  color: var(--Site_Color);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* nav buttons */
+
+#nav_navButtons {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_nav {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 10px;
+  border-bottom: 10px solid var(--Site_BackgroundCOlor);
+}
+
+.nav_nav b {
+  margin: 5px 8px;
+}
+
+.nav_nav:hover {
+  border-bottom: 4px solid var(--Site_smallTextColor);
+  transition: 0.1s;
+}
+
+/* NAv search */
+
+#nav_searchHolder {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+}
+
+#nav_search {
+  outline: none;
+  /* width: 250px; */
+  padding: 5px 10px;
+  font-size: 17px;
+  border: none;
+  background: #e2eaf3;
+  border-radius: 5px;
+  color: rgb(110, 110, 110);
+}
+
+#nav_search:focus {
+  background: var(--Site_lightBlue);
+  color: rgb(16, 24, 27);
+}
+
+#nav_searchNav {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  color : var(--Site_smallTextColor)
+}
+
+#nav_searchNav:hover {
+  color: var(--Site_Color);
+}

@@ -1,0 +1,63 @@
+#head_container {
+  width: 100%;
+  height: auto;
+  padding-top: 120px;
+  background: var(--Site_BackgroundCOlor);
+  color: var(--Site_Color);
+  display: flex;
+  justify-content: center;
+}
+
+#header_Box {
+  width: var(--Site_contentWidth);
+  height: auto;
+  background: #fbf0e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 10px #fbf0e4;
+}
+
+.head_data {
+  width: 55%;
+  height: 86%;
+  /* border: 1px dotted red;/ */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 80px;
+    padding-bottom: 40px;
+    /* overflow: hidden; */
+}
+
+.head_data h1 {
+  font-size: 60px;
+  margin-top: 40px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: left;
+}
+
+.head_data div {
+  background: var(--Site_Color);
+  color: var(--Site_BackgroundCOlor);
+  width: auto;
+  height: auto;
+  padding: 7px 25px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.head_data div p {
+  margin: 0;
+}
+
+#header_pic{
+    width: 40%;
+    height: 120%;
+    background: url(../Assets/mainman.png);
+    background-size: contain ;
+    background-position: center;
+    background-repeat: no-repeat;
+}

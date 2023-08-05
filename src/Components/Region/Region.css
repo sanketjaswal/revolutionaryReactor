@@ -1,0 +1,30 @@
+
+#country_dropdown {
+  position: absolute;
+  left: 10%;
+  top: -50px;
+}
+
+#country_dropdown select {
+  width: Auto;
+  height: 35px;
+  border: 0;
+  padding-left: 12px;
+  font-size: 18px;
+  border-radius: 100px;
+  color: var(--Site_smallTextColor);
+  box-shadow: 0 0 3px grey;
+  background: #e2eaf3;
+  color: #737373;
+  appearance: none;
+  background-image: url(../Assets/region.png);
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 1em;
+  cursor: pointer;
+  padding-right: 30px;
+}
+
+#country_dropdown select:hover{
+      box-shadow: 0 0 7px grey;
+} 
