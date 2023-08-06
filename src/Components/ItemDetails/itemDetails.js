@@ -3,13 +3,12 @@ import "./ItemDetails.css";
 import { useParams } from "react-router-dom";
 import { Star } from "../Star/Star";
 import { BigNormalBtn, BigFancyBtn } from "../Button/Button.styled";
-import { useLocation } from "react-router-dom";
 import dataFApi from "../Assets/api.json";
 // import detailApi from "..";
 
 export const ItemDetails = ({ getClothsType }) => {
-  const [mainPhoto, setmainPhoto] = useState();
   const [itemSelect, setItemSelect] = useState(dataFApi[0]);
+  const [mainPhoto, setmainPhoto] = useState();
 
   const params = useParams();
 
@@ -22,6 +21,13 @@ export const ItemDetails = ({ getClothsType }) => {
     },
   };
 
+  const startFunctions = () => {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("Detail_Container").style.cursor = "default";
+    document.getElementById("Detail_divide1").style.display = "flex";
+    document.getElementById("Detail_divide2").style.display = "flex";
+  };
+
   const CallDetailsApi = async (url, options) => {
     try {
       const response = await fetch(url, options);
@@ -30,6 +36,7 @@ export const ItemDetails = ({ getClothsType }) => {
         (e) => e.defaultArticle.code === params.id
       );
       setItemSelect(found);
+      startFunctions();
     } catch (error) {
       console.error(error);
     }
@@ -37,6 +44,7 @@ export const ItemDetails = ({ getClothsType }) => {
 
   useEffect(() => {
     CallDetailsApi(detailsUrl, detailsOptions);
+    // startFunctions();
   }, [params.id]);
 
   let mainpic = itemSelect.articles[0].logoPicture[0].baseUrl;
@@ -47,11 +55,12 @@ export const ItemDetails = ({ getClothsType }) => {
 
   const changePhoto = (photoUrl) => {
     mainpic = photoUrl;
-    setmainPhoto(mainpic);
+    setmainPhoto(photoUrl);
   };
   return (
     <div id="Detail_Container">
-      <div className="Detail_divide1">
+      <h1 id="loader">Loading...</h1>
+      <div id="Detail_divide1">
         <div
           style={{
             backgroundImage: `url(${mainPhoto})`,
@@ -75,7 +84,7 @@ export const ItemDetails = ({ getClothsType }) => {
           })}
         </div>
       </div>
-      <div className="Detail_divide2">
+      <div id="Detail_divide2">
         <div id="detail_mainTexts">
           <h1>{itemSelect.name}</h1>
           <Star />

@@ -2,26 +2,33 @@
   width: 100vw;
   height: auto;
   min-height: 100vh;
-  /* position: absolute; */
   top: 0;
   display: flex;
   justify-content: space-evenly;
   background-color: var(--Site_BackgroundCOlor);
+  cursor: progress;
 }
 
-.Detail_divide1 {
+#loader{
+  position: absolute;
+  top: 200px;
+  color: var(--Site_smallTextColor);
+  
+}
+
+#Detail_divide1 {
   width: 42%;
   margin-top: 70px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
 }
-.Detail_divide2 {
+#Detail_divide2 {
   width: 42%;
   margin-top: 70px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;

@@ -33,16 +33,19 @@ function App() {
       const response = await fetch(url, options);
       const result = await response.json();
       setApiRes(result.results);
+      // document.body.style.cursor = "default";
+      // document.getElementById("data_area").style.display = "flex";
+      // document.getElementById("loading_screen").style.display = "none";
     } catch (error) {
       console.error(error);
     }
-    document.body.style.cursor = "default";
-    document.getElementById("data_area").style.display = "flex";
-    document.getElementById("loading_screen").style.display = "none";
   };
 
   useEffect(() => {
     callApi(url, options);
+    document.body.style.cursor = "default";
+    document.getElementById("data_area").style.display = "flex";
+    document.getElementById("loading_screen").style.display = "none";
   }, [country]);
 
   return (
@@ -59,9 +62,12 @@ function App() {
             return (
               <Link
                 key={index}
+                style={{
+                  textDecoration: "none",
+                }}
                 to={`/product/${country}/${data.defaultArticle.code}/`}
               >
-                <ItemSlot data={data} country={country} />
+                <ItemSlot data={data} />
               </Link>
             );
           })}
