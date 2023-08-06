@@ -6,7 +6,7 @@ import { ItemSlot } from "./Components/ItemSlot/Itemslot";
 import { Region } from "./Components/Region/Region";
 import { ItemDetails } from "./Components/ItemDetails/itemDetails";
 import dataFApi from "./Components/Assets/api.json";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function App() {
   const [country, setCountry] = useState("us");
@@ -23,7 +23,7 @@ function App() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "c60d88c0aamsh2048021bc4a5a13p10d979jsn2adcf449bfe5",
+      "X-RapidAPI-Key": "5e19675e87msh8a415e1e7b248c3p1cb390jsn2c852cdc1299",
       "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
   };
@@ -33,9 +33,9 @@ function App() {
       const response = await fetch(url, options);
       const result = await response.json();
       setApiRes(result.results);
-      // document.body.style.cursor = "default";
-      // document.getElementById("data_area").style.display = "flex";
-      // document.getElementById("loading_screen").style.display = "none";
+      document.body.style.cursor = "default";
+      document.getElementById("data_area").style.display = "flex";
+      document.getElementById("loading_screen").style.display = "none";
     } catch (error) {
       console.error(error);
     }
@@ -43,9 +43,9 @@ function App() {
 
   useEffect(() => {
     callApi(url, options);
-    document.body.style.cursor = "default";
-    document.getElementById("data_area").style.display = "flex";
-    document.getElementById("loading_screen").style.display = "none";
+    // document.body.style.cursor = "default";
+    // document.getElementById("data_area").style.display = "flex";
+    // document.getElementById("loading_screen").style.display = "none";
   }, [country]);
 
   return (
@@ -60,15 +60,16 @@ function App() {
         <div id="data_area">
           {ApiRes.map(function (data, index) {
             return (
-              <Link
-                key={index}
-                style={{
-                  textDecoration: "none",
-                }}
-                to={`/product/${country}/${data.defaultArticle.code}/`}
-              >
-                <ItemSlot data={data} />
-              </Link>
+              // <Link
+              //   key={index}
+              //   className="routeLink"
+              //   style={{
+              //     textDecoration: "none",
+              //   }}
+              //   to={`/product/${country}/${data.defaultArticle.code}/`}
+              // >
+              <ItemSlot data={data} country={country} />
+              // </Link>
             );
           })}
         </div>

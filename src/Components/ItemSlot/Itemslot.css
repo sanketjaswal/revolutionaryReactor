@@ -9,15 +9,12 @@
   position: relative;
   transition: 0.4s;
   cursor: pointer;
-   text-decoration: none;
+  text-decoration: none;
+
 }
 
-.slot_container:active {
-  transform: scale(.98);
-transition: .2s;
-}
-
-.slot_container:hover {
+.routeLink:active {
+  transform: scale(0.98);
   transition: 0.2s;
 }
 
@@ -30,23 +27,28 @@ transition: .2s;
   position: absolute;
   top: 5px;
   right: 5px;
-  transition: 0.5s;
+  transition: 0.4s;
   cursor: pointer;
 }
 
 .slot_heart:hover {
   color: rgb(255, 50, 98);
-  transition: 0.1s;
+  transition: 0.2s;
   transform: scale(1.2);
 }
 
+.slot_heart:active {
+  color: rgb(255, 50, 98);
+  transition: 0.2s;
+  transform: scale(0.99);
+}
+
 .apiPhoto {
-  width: 270px;
+  width: 100%;
   height: 370px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-
 }
 
 .slot_dataContainer {
@@ -71,9 +73,7 @@ transition: .2s;
 
 .slot_priceRate {
   display: flex;
-  /* background-color: yellow; */
   justify-content: space-between;
-  /* margin-bottom: 5px; */
 }
 
 .slot_priceholder {
@@ -84,11 +84,39 @@ transition: .2s;
 }
 
 .slot_priceholder p {
-  font-weight:600;
+  font-weight: 600;
   font-size: 18px;
 }
 
+/* responsive */
 
+@media only screen and (max-width: 400px) {
+  .slot_container {
+    width: 49.5%;
+    height: auto;
+    border: 1px solid #c4c4c449 ;
+  margin-block: 0px;
 
+  }
 
+  .apiPhoto {
+    width: 100%;
+    height: 300px;
+  }
 
+  .slot_dataContainer {
+    width: 95%;
+    margin: 5px;
+    gap: 1px;
+  }
+
+  .slot_priceRate  {
+  justify-content: space-around;
+  }
+
+  .slot_dataContainer p {
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+}

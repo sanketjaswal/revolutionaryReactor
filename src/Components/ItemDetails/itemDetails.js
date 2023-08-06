@@ -16,7 +16,7 @@ export const ItemDetails = ({ getClothsType }) => {
   const detailsOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "c60d88c0aamsh2048021bc4a5a13p10d979jsn2adcf449bfe5",
+      "X-RapidAPI-Key": "5e19675e87msh8a415e1e7b248c3p1cb390jsn2c852cdc1299",
       "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
   };
@@ -57,6 +57,12 @@ export const ItemDetails = ({ getClothsType }) => {
     mainpic = photoUrl;
     setmainPhoto(photoUrl);
   };
+
+  const changeBackPhoto = () => {
+    mainpic = itemSelect.articles[0].logoPicture[0].baseUrl;
+    setmainPhoto(mainpic);
+  };
+
   return (
     <div id="Detail_Container">
       <h1 id="loader">Loading...</h1>
@@ -76,8 +82,11 @@ export const ItemDetails = ({ getClothsType }) => {
                 }}
                 key={index}
                 className="detail_otherPhotos"
-                onClick={() => {
+                onMouseEnter={() => {
                   changePhoto(data.baseUrl);
+                }}
+                onMouseLeave={() => {
+                  changeBackPhoto();
                 }}
               ></div>
             );
@@ -86,13 +95,18 @@ export const ItemDetails = ({ getClothsType }) => {
       </div>
       <div id="Detail_divide2">
         <div id="detail_mainTexts">
-          <h1>{itemSelect.name}</h1>
+          <div id="detailName">
+            <h1>{itemSelect.name}</h1>
+          </div>
+
           <Star />
-          <hr></hr>
-          <h2>{itemSelect.whitePrice.formattedValue} or 99.99/month</h2>
-          <p>Suggested payments with 6 months special financing</p>
-          <hr></hr>
-          <h3>Choose a color</h3>
+          <hr id="smallHide"></hr>
+          <h2>{itemSelect.whitePrice.formattedValue} or 99.99 / month</h2>
+          <p id="smallHide">
+            Suggested payments with 6 months special financing
+          </p>
+          <hr id="smallHide"></hr>
+          <h3 id="smallHide">Choose a color</h3>
           <div id="detail_colorsHolder">
             {itemSelect.rgbColors.map(function (data, index) {
               return (

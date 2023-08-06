@@ -11,7 +11,6 @@ export const Star = ({ Rate }) => {
         <span className="material-icons star">star</span>
         <span className="material-icons star">star_half</span>
       </div>
-      {/* <p>(121)</p> */}
     </div>
   );
 };

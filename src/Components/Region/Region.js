@@ -24,14 +24,7 @@ export const Region = ({ countryChange }) => {
         >
           India
         </option>
-        <option
-          value="3"
-          onClick={() => {
-            countryChange("asia2");
-          }}
-        >
-          Singapore
-        </option>
+
         <option
           value="4"
           onClick={() => {

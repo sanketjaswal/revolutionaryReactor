@@ -2,6 +2,8 @@ import React from "react";
 import "./Itemslot.css";
 import { NormalButton } from "../Button/Button.styled";
 import { Star } from "../Star/Star";
+import { Link } from "react-router-dom";
+
 export const ItemSlot = ({ data, index, country }) => {
   let priceSymbol = "$";
   if (country === "in") {
@@ -10,16 +12,37 @@ export const ItemSlot = ({ data, index, country }) => {
     priceSymbol = "¥";
   }
 
+  const changeFav = (evt) => {
+    let state = evt.target.innerText;
+    let parent = evt.target.parentNode;
+    if (state === "favorite_border") {
+      evt.target.innerText = "favorite";
+      parent.style.color = "rgb(255, 50, 98)";
+    } else if (state === "favorite") {
+      evt.target.innerText = "favorite_border";
+      parent.style.color = "var(--Site_smallTextColor)";
+    }
+  };
+
   return (
     <div className="slot_container">
-      <div className="slot_heart">
+      <div className="slot_heart" onClick={(e) => changeFav(e)}>
         <span className="material-icons">favorite_border</span>
       </div>
-      <img
-        src={data.articles[0].logoPicture[0].baseUrl}
-        className="apiPhoto"
-        alt=""
-      />
+      <Link
+        key={index}
+        className="routeLink"
+        style={{
+          textDecoration: "none",
+        }}
+        to={`/product/${country}/${data.defaultArticle.code}/`}
+      >
+        <img
+          src={data.articles[0].logoPicture[0].baseUrl}
+          className="apiPhoto"
+          alt=""
+        />
+      </Link>
       <div className="slot_dataContainer">
         <p>{data.name}</p>
         <div className="slot_priceRate">
@@ -30,7 +53,7 @@ export const ItemSlot = ({ data, index, country }) => {
             </p>
             <p>
               {data.price.value}
-              <sup>.oo</sup>
+              {/* <sup>.oo</sup> */}
             </p>
           </div>
         </div>

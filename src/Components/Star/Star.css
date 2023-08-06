@@ -1,8 +1,5 @@
 .StarHolder{
     display: flex;
-    /* width: 50px; */
-    /* background-color: aqua; */
-    font-size: 12px;
     align-items: center;
     gap: 5px;
     color: var(--Site_smallTextColor);
@@ -13,4 +10,17 @@
     transform: scale(.7);
     color: lawngreen;
 
+}
+
+  @media only screen and (max-width: 400px) {
+    .StarHolder{
+    gap: 2px;
+
+    }
+    
+.star{
+    width: 13px;
+    transform: scale(.6);
+    color: lawngreen;
+}
 }

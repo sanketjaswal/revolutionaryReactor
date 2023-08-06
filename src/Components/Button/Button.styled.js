@@ -25,13 +25,19 @@ export const NormalButton = styled.section`
   &:active {
     transform: scale(0.95);
   }
+
+  @media only screen and (max-width: 350px) {
+    width: auto;
+    height: 25px;
+    font-size: 14px;
+  }
 `;
 
 export const FancyButton = styled(NormalButton)`
   color: var(--Site_BackgroundCOlor);
   font-size: 17px;
   background-color: var(--Site_Color);
-  border: 0px;
+  border: 2px solid transparent;
   &:hover {
     background-color: gold;
     color: var(--Site_BackgroundCOlor);
@@ -44,6 +50,12 @@ export const BigNormalBtn = styled(NormalButton)`
   width: 203px;
   height: 53px;
   font-weight: 600;
+  @media only screen and (max-width: 350px) {
+    width: auto;
+    padding: 0px 10px;
+    height: 38px;
+    font-size: 14px;
+  }
 `;
 
 export const BigFancyBtn = styled(FancyButton)`
@@ -51,4 +63,10 @@ export const BigFancyBtn = styled(FancyButton)`
   width: 203px;
   height: 53px;
   font-weight: 600;
+  @media only screen and (max-width: 350px) {
+    width: auto;
+    height: 38px;
+    font-size: 14px;
+    padding: 0px 10px;
+  }
 `;

@@ -9,11 +9,10 @@
   cursor: progress;
 }
 
-#loader{
+#loader {
   position: absolute;
   top: 200px;
   color: var(--Site_smallTextColor);
-  
 }
 
 #Detail_divide1 {
@@ -68,8 +67,8 @@
   cursor: pointer;
 }
 
-.detail_otherPhotos:hover{
-box-shadow: 0 0 3px var(--Site_Color);
+.detail_otherPhotos:hover {
+  box-shadow: 0 0 3px var(--Site_Color);
 }
 
 #detail_mainTexts {
@@ -144,14 +143,15 @@ hr {
   box-shadow: 0 0 1px black;
 }
 
-#detail_adder{
+#detail_adder {
   width: 100%;
   display: flex;
   gap: 50px;
   align-items: center;
+  justify-content: center;
 }
 
-#adder{
+#adder {
   width: 150px;
   height: 50px;
   border-radius: 50px;
@@ -164,32 +164,113 @@ hr {
 }
 
 #adder p {
-    margin: 0;
-    font-size: 25px;
-    cursor: pointer;
+  margin: 0;
+  font-size: 25px;
+  cursor: pointer;
 }
 
-#detail_smalltext{
-    width: 200px;
-    display: flex;
-    flex-direction: column;
+#detail_smalltext {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
-#detail_smalltext p{
-    margin: 0;
-    font-size: 12px;
+#detail_smalltext p {
+  margin: 0;
+  font-size: 12px;
 }
 
-#detail_buttonsHolder{
-    display: flex;
+#detail_buttonsHolder {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+  margin-block: 40px;
+  /* justify-content: space-evenly; */
+}
+
+#details_extraText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 8%;
+}
+
+@media only screen and (max-width: 400px) {
+  #Detail_divide1 {
+    position: absolute;
     width: 100%;
-    gap: 40px;
-    margin-block: 40px;
+    height: 50vh;
+    display: none;
+    top: 70px;
+    /* background-color: red; */
+  }
+
+#detail_photosHolder {
+  width: 90%
 }
 
-#details_extraText{
+.detail_otherPhotos{
+  /* width: 70px; */
+  margin-top: 10px;
+    margin-bottom: 0px;
+
+}
+
+  #Detail_divide2 {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 8%;
+    margin-top: 70px;
+  }
+
+  #detail_mainTexts h1 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  #detailName{
+    margin-bottom
+    : 68vh;
+  }
+
+ #smallHide{
+  display: none;
+}
+
+hr{
+  margin-block: 10px;
+}
+
+  #detail_mainTexts p {
+  margin: 5px 0px;
+}
+
+#detail_mainTexts h2 {
+  font-size: 22px;
+}
+
+#detail_adder {
+  /* background-color: aquamarine; */
+}
+
+#adder {
+  width: 150px;
+  height: 40px;
+}
+
+#detail_smalltext p {
+  margin: 0;
+}
+
+#detail_buttonsHolder {
+  gap: 15px;
+  margin-block: 15px;
+  justify-content: flex-start;
+}
+
+#details_extraText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2%;
+}
+
 }

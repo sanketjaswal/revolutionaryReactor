@@ -60,3 +60,16 @@ h4 {
   /* background-color: red; */
 }
 
+@media only screen and (max-width: 400px) {
+  :root {
+    --Site_contentWidth: 100%;  }
+
+/* .routeLink{
+  width: 49.9%;
+} */
+
+  #data_area {
+    /* background-color: #004831; */
+    justify-content: center;
+  }
+}
