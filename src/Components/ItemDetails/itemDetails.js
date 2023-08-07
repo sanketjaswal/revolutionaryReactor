@@ -9,8 +9,11 @@ import dataFApi from "../Assets/api.json";
 export const ItemDetails = ({ getClothsType }) => {
   const [itemSelect, setItemSelect] = useState(dataFApi[0]);
   const [mainPhoto, setmainPhoto] = useState();
+  const [photoClick, setClick] = useState(false);
 
   const params = useParams();
+
+  // API loading function
 
   const detailsUrl = `https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=${params.country}&lang=en&currentpage=0&pagesize=30&categor6ies=men_all&concepts=H%26M%20MAN`;
   const detailsOptions = {
@@ -19,13 +22,6 @@ export const ItemDetails = ({ getClothsType }) => {
       "X-RapidAPI-Key": "5e19675e87msh8a415e1e7b248c3p1cb390jsn2c852cdc1299",
       "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
-  };
-
-  const startFunctions = () => {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("Detail_Container").style.cursor = "default";
-    document.getElementById("Detail_divide1").style.display = "flex";
-    document.getElementById("Detail_divide2").style.display = "flex";
   };
 
   const CallDetailsApi = async (url, options) => {
@@ -42,25 +38,38 @@ export const ItemDetails = ({ getClothsType }) => {
     }
   };
 
+  const startFunctions = () => {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("Detail_Container").style.cursor = "default";
+    document.getElementById("Detail_divide1").style.display = "flex";
+    document.getElementById("Detail_divide2").style.display = "flex";
+  };
+
   useEffect(() => {
     CallDetailsApi(detailsUrl, detailsOptions);
     // startFunctions();
   }, [params.id]);
 
+  // photo clicking functions -
   let mainpic = itemSelect.articles[0].logoPicture[0].baseUrl;
 
   useEffect(() => {
     setmainPhoto(mainpic);
   }, [itemSelect]);
 
-  const changePhoto = (photoUrl) => {
-    mainpic = photoUrl;
+  const mouseOverPhoto = (photoUrl) => {
+    // mainpic = photoUrl;
     setmainPhoto(photoUrl);
   };
 
-  const changeBackPhoto = () => {
-    mainpic = itemSelect.articles[0].logoPicture[0].baseUrl;
+  const leavePhoto = (photoUrl) => {
+    if (photoClick) {
+      mainpic = photoUrl;
+    } else {
+      mainpic = itemSelect.articles[0].logoPicture[0].baseUrl;
+    }
     setmainPhoto(mainpic);
+    setClick(false);
   };
 
   return (
@@ -82,11 +91,14 @@ export const ItemDetails = ({ getClothsType }) => {
                 }}
                 key={index}
                 className="detail_otherPhotos"
-                onMouseEnter={() => {
-                  changePhoto(data.baseUrl);
+                onMouseOver={() => {
+                  mouseOverPhoto(data.baseUrl);
+                }}
+                onClick={() => {
+                  setClick(true);
                 }}
                 onMouseLeave={() => {
-                  changeBackPhoto();
+                  leavePhoto(data.baseUrl);
                 }}
               ></div>
             );

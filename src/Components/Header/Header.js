@@ -1,9 +1,16 @@
 import React from "react";
 import "./Header.css";
+import man0 from "../Assets/man0.png";
+import man1 from "../Assets/man1.png";
 
 export const Header = () => {
-  let number = Math.floor(Math.random() * 1);
-  let e = 0;
+  let chosenId;
+  (function () {
+    let number = Math.floor(Math.random() * 3);
+    chosenId = "pic" + number;
+  })();
+  console.log(chosenId);
+
   return (
     <header id="head_container">
       <div id="header_Box">
@@ -14,12 +21,10 @@ export const Header = () => {
           </div>
         </div>
         <div
-          className="head_data"
-          style={{ backgroundImage: `url('../Assets/man${e}.png')` }}
           id="header_pic"
-        >
-          {/* <h2>Photo</h2> */}
-        </div>
+          // style={{ background: `url(${pic})` }}
+          className={`head_data ${chosenId}`}
+        ></div>
       </div>
     </header>
   );

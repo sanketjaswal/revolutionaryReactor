@@ -33,14 +33,14 @@ export const Region = ({ countryChange }) => {
         >
           Hong Kong
         </option>
-        <option
+        {/* <option
           value="5"
           onClick={() => {
             countryChange("jp");
           }}
         >
           Japan
-        </option>
+        </option> */}
         <option
           value="6"
           onClick={() => {
@@ -49,30 +49,30 @@ export const Region = ({ countryChange }) => {
         >
           UK
         </option>
-        <option
+        {/* <option
           value="7"
           onClick={() => {
             countryChange("pt");
           }}
         >
           Portugal
-        </option>
-        <option
+        </option> */}
+        {/* <option
           value="8"
           onClick={() => {
             countryChange("fr");
           }}
         >
           France
-        </option>
-        <option
+        </option> */}
+        {/* <option
           value="9"
           onClick={() => {
             countryChange("it");
           }}
         >
           Italy
-        </option>
+        </option> */}
         <option
           value="10"
           onClick={() => {

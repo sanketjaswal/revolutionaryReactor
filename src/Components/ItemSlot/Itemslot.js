@@ -4,13 +4,16 @@ import { NormalButton } from "../Button/Button.styled";
 import { Star } from "../Star/Star";
 import { Link } from "react-router-dom";
 
-export const ItemSlot = ({ data, index, country }) => {
-  let priceSymbol = "$";
-  if (country === "in") {
-    priceSymbol = "₹";
-  } else if (country === "jp") {
-    priceSymbol = "¥";
-  }
+export const ItemSlot = ({ data, index }) => {
+  // let priceSymbol = "$";
+  // if (country === "in") {
+  //   priceSymbol = "₹";
+  // } else if (country === "jp") {
+  //   priceSymbol = "¥";
+  // }
+
+  const country = data.linkPdp.slice(4, 6);
+  // console.log(data.linkPdp.slice(4, 6));
 
   const changeFav = (evt) => {
     let state = evt.target.innerText;
@@ -30,7 +33,6 @@ export const ItemSlot = ({ data, index, country }) => {
         <span className="material-icons">favorite_border</span>
       </div>
       <Link
-        key={index}
         className="routeLink"
         style={{
           textDecoration: "none",
@@ -48,11 +50,9 @@ export const ItemSlot = ({ data, index, country }) => {
         <div className="slot_priceRate">
           <Star Rate />
           <div className="slot_priceholder">
+            <p>{/* <sup>{priceSymbol}</sup> */}</p>
             <p>
-              <sup>{priceSymbol}</sup>
-            </p>
-            <p>
-              {data.price.value}
+              {data.price.formattedValue}
               {/* <sup>.oo</sup> */}
             </p>
           </div>

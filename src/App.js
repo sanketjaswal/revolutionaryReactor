@@ -4,7 +4,7 @@ import { Navbar } from "./Components/Navbar/Navbar";
 import { Header } from "./Components/Header/Header";
 import { ItemSlot } from "./Components/ItemSlot/Itemslot";
 import { Region } from "./Components/Region/Region";
-import { ItemDetails } from "./Components/ItemDetails/itemDetails";
+// import { ItemDetails } from "./Components/ItemDetails/itemDetails";
 import dataFApi from "./Components/Assets/api.json";
 // import { Link } from "react-router-dom";
 
@@ -12,11 +12,14 @@ function App() {
   const [country, setCountry] = useState("us");
   const [ApiRes, setApiRes] = useState(dataFApi);
 
+  // let country;
+
   const countryChange = (data) => {
     document.body.style.cursor = "progress";
     document.getElementById("data_area").style.display = "none";
     document.getElementById("loading_screen").style.display = "block";
     setCountry(data);
+    // country = data;
   };
 
   const url = `https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=${country}&lang=en&currentpage=0&pagesize=30&categor6ies=men_all&concepts=H%26M%20MAN`;
@@ -30,6 +33,7 @@ function App() {
 
   const callApi = async (url, options) => {
     try {
+      console.log("callApi");
       const response = await fetch(url, options);
       const result = await response.json();
       setApiRes(result.results);
@@ -42,7 +46,7 @@ function App() {
   };
 
   useEffect(() => {
-    callApi(url, options);
+    // callApi(url, options);
     // document.body.style.cursor = "default";
     // document.getElementById("data_area").style.display = "flex";
     // document.getElementById("loading_screen").style.display = "none";
@@ -68,7 +72,7 @@ function App() {
               //   }}
               //   to={`/product/${country}/${data.defaultArticle.code}/`}
               // >
-              <ItemSlot data={data} country={country} />
+              <ItemSlot data={data} key={index} />
               // </Link>
             );
           })}
