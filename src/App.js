@@ -46,7 +46,7 @@ function App() {
   };
 
   useEffect(() => {
-    // callApi(url, options);
+    callApi(url, options);
     // document.body.style.cursor = "default";
     // document.getElementById("data_area").style.display = "flex";
     // document.getElementById("loading_screen").style.display = "none";
