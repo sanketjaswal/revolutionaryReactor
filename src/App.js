@@ -9,7 +9,7 @@ import dataFApi from "./Components/Assets/api.json";
 // import { Link } from "react-router-dom";
 
 function App() {
-  const [country, setCountry] = useState("us");
+  const [country, setCountry] = useState();
   const [ApiRes, setApiRes] = useState(dataFApi);
 
   // let country;
@@ -46,10 +46,7 @@ function App() {
   };
 
   useEffect(() => {
-    callApi(url, options);
-    // document.body.style.cursor = "default";
-    // document.getElementById("data_area").style.display = "flex";
-    // document.getElementById("loading_screen").style.display = "none";
+    // callApi(url, options);
   }, [country]);
 
   return (
@@ -63,18 +60,7 @@ function App() {
         </div>
         <div id="data_area">
           {ApiRes.map(function (data, index) {
-            return (
-              // <Link
-              //   key={index}
-              //   className="routeLink"
-              //   style={{
-              //     textDecoration: "none",
-              //   }}
-              //   to={`/product/${country}/${data.defaultArticle.code}/`}
-              // >
-              <ItemSlot data={data} key={index} />
-              // </Link>
-            );
+            return <ItemSlot data={data} key={index} />;
           })}
         </div>
       </div>

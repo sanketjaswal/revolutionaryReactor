@@ -26,7 +26,7 @@ export const NormalButton = styled.section`
     transform: scale(0.95);
   }
 
-  @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 400px) {
     width: auto;
     height: 25px;
     font-size: 14px;
@@ -50,7 +50,7 @@ export const BigNormalBtn = styled(NormalButton)`
   width: 203px;
   height: 53px;
   font-weight: 600;
-  @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 400px) {
     width: auto;
     padding: 0px 10px;
     height: 38px;
@@ -63,7 +63,7 @@ export const BigFancyBtn = styled(FancyButton)`
   width: 203px;
   height: 53px;
   font-weight: 600;
-  @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 400px) {
     width: auto;
     height: 38px;
     font-size: 14px;

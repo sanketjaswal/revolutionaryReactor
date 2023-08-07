@@ -1,15 +1,13 @@
 import React from "react";
 import "./Header.css";
-import man0 from "../Assets/man0.png";
-import man1 from "../Assets/man1.png";
+import { BigFancyBtn, FancyButton } from "../Button/Button.styled";
 
 export const Header = () => {
   let chosenId;
   (function () {
-    let number = Math.floor(Math.random() * 3);
+    let number = Math.floor(Math.random() * 5);
     chosenId = "pic" + number;
   })();
-  console.log(chosenId);
 
   return (
     <header id="head_container">
@@ -19,6 +17,7 @@ export const Header = () => {
           <div>
             <p>Buy Now</p>
           </div>
+          {/* <BigFancyBtn>Buy Now</BigFancyBtn> */}
         </div>
         <div
           id="header_pic"
